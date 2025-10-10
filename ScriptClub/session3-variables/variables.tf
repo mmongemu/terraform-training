@@ -21,3 +21,9 @@ variable "ticket_id" {
   description = "Reference ticket ID"
   default ="CS-1234"
 }
+
+variable "akamai_client_secret" {}
+variable "akamai_host" {}
+variable "akamai_access_token" {}
+variable "akamai_client_token" {}
+variable "akamai_account_key" {}
