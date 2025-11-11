@@ -45,12 +45,8 @@ data "akamai_property_rules_builder" "my_default_rule" {
     EOT
     behavior {  
       origin {
-        origin_type                   = "NET_STORAGE"
-        net_storage {
-            cp_code                 = 263301
-            download_domain_name    = "crtestns.download.akamai.com"
-            g2o_token               = "263301=6j4pn8tYL9Ws6HxSKuo9Y1K10kjt1b5z39J43ee6dODKaWeX08"
-        } 
+        origin_type                   = "CUSTOMER"
+        hostname                      = var.ab_test == "A" ? "origin-a.customer.com" : "origin-b.customer.com"
         forward_host_header           = "ORIGIN_HOSTNAME"
         cache_key_hostname            = "REQUEST_HOST_HEADER"
         compress                      = true

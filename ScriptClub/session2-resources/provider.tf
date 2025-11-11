@@ -10,5 +10,5 @@ terraform {
  
 provider "akamai" {
   edgerc         = "~/.edgerc"
-  config_section = "Akamai PS"
+  config_section = "Akamai-PS"
 }
