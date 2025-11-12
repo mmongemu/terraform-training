@@ -1,5 +1,3 @@
-
-
 //CP Code
 resource "akamai_cp_code" "my_cp_code" {
   name        = "mmongemu-sc"
@@ -62,6 +60,12 @@ data "akamai_property_rules_builder" "default_rule" {
         }
       }
     }
+    behavior {
+      caching {
+        behavior        = "NO_STORE"
+        must_revalidate = false
+      }
+    }
     children = [
       data.akamai_property_rules_builder.compress_text_content.json
     ]
@@ -108,4 +112,33 @@ resource "akamai_property" "my_s4_property" {
   #   cert_provisioning_type  = "CPS_MANAGED"
   # }
   rules = data.akamai_property_rules_builder.default_rule.json
+}
+
+data "akamai_property" "s4_property" {
+  name    = "mmongemu-trsc4.com"
+  version = "1"
+}
+
+output "my_property" {
+  value = data.akamai_property.s4_property.id
+}
+
+resource "akamai_property_activation" "staging_activation" {
+     property_id  = data.akamai_property.s4_property.id
+     contact      = [local.email]
+     version      = data.akamai_property.s4_property.latest_version
+     network      = "STAGING"
+     auto_acknowledge_rule_warnings = true
+     note         = local.notes
+}
+
+resource "akamai_property_activation" "production_activation" {
+     property_id  = data.akamai_property.s4_property.id
+     contact      = [local.email]
+     version      = data.akamai_property.s4_property.latest_version
+     network      = "PRODUCTION"
+     note         = local.notes
+     depends_on   = [
+      akamai_property_activation.staging_activation
+     ]
 }

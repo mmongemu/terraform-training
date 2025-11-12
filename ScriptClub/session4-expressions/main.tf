@@ -14,8 +14,13 @@ variable "ab_test" {
 }  
 
 locals {
-  app_hostnames = {for apps in var.apps : "${apps}" => "${apps}.customer.com"}
+  app_hostnames = {for apps in var.apps : "${apps}" => "${apps}.mmongemu-trsc.com"}
+  notes         = "Script Club s4"
+  email         = "mmongemu@akamai.com"
+
 }
+
+
  
 output "hostname" {
   value = local.app_hostnames
