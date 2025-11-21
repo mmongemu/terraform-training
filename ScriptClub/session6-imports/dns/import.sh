@@ -1,0 +1,3 @@
+terraform init
+terraform import akamai_dns_zone._1testedns_com 1testedns.com
+terraform import akamai_dns_record._1testedns_com__1testedns_com_AKAMAICDN 1testedns.com#1testedns.com#AKAMAICDN
