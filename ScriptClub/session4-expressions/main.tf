@@ -17,9 +17,9 @@ locals {
   app_hostnames = {for apps in var.apps : "${apps}" => "${apps}.mmongemu-trsc.com"}
   notes         = "Script Club s4"
   email         = "mmongemu@akamai.com"
+  app_edge_hostnames = {for hostnames in local.app_hostnames : "${hostnames}" => "${hostnames}.edgesuite.net"}
 
 }
-
 
  
 output "hostname" {
