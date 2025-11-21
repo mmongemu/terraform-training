@@ -1,0 +1,51 @@
+{
+  "accountId": "act_1-6JHGX",
+  "contractId": "ctr_1-1NC95D",
+  "groupId": "grp_19293",
+  "propertyId": "prp_1284367",
+  "propertyVersion": 1,
+  "etag": "d170dd75dbea9d1b7fa8eedd5347c0d86895ac92",
+  "ruleFormat": "v2018-09-12",
+  "rules": {
+    "name": "default",
+    "behaviors": [
+      {
+        "name": "origin",
+        "options": {
+          "cacheKeyHostname": "REQUEST_HOST_HEADER",
+          "compress": true,
+          "enableTrueClientIp": true,
+          "forwardHostHeader": "ORIGIN_HOSTNAME",
+          "hostname": "origin-a.customer.com",
+          "httpPort": 80,
+          "httpsPort": 443,
+          "originSni": false,
+          "originType": "CUSTOMER",
+          "useUniqueCacheKey": false,
+          "verificationMode": "PLATFORM_SETTINGS"
+        }
+      },
+      {
+        "name": "cpCode",
+        "options": {
+          "value": {
+            "id": 1894517,
+            "name": "mmongemu-sc"
+          }
+        }
+      },
+      {
+        "name": "caching",
+        "options": {
+          "behavior": "NO_STORE",
+          "mustRevalidate": false
+        }
+      }
+    ],
+    "children": [
+      "#include:Compress_Text_Content.json"
+    ],
+    "comments": "The behaviors in the default rule apply to all requests for the property hostnames unless another rule overrides these settings.\n",
+    "options": {}
+  }
+}

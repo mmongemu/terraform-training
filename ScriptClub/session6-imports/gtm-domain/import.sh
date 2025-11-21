@@ -1,0 +1,11 @@
+terraform init
+terraform import akamai_gtm_domain.mmongemu "mmongemu.akadns.net"
+terraform import akamai_gtm_datacenter.EU "mmongemu.akadns.net:3134"
+terraform import akamai_gtm_datacenter.NA "mmongemu.akadns.net:3131"
+terraform import akamai_gtm_datacenter.APAC "mmongemu.akadns.net:3133"
+terraform import akamai_gtm_datacenter.APAC-S "mmongemu.akadns.net:3132"
+terraform import akamai_gtm_datacenter.OC "mmongemu.akadns.net:3135"
+terraform import akamai_gtm_property.oc-fo "mmongemu.akadns.net:oc-fo"
+terraform import akamai_gtm_property.na-fo "mmongemu.akadns.net:na-fo"
+terraform import akamai_gtm_property.apac-fo "mmongemu.akadns.net:apac-fo"
+terraform import akamai_gtm_property.eu-fo "mmongemu.akadns.net:eu-fo"

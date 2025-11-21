@@ -1,0 +1,3 @@
+terraform init
+terraform import akamai_cps_third_party_enrollment.enrollment_id_269323 269323,1-1NC95D
+terraform import akamai_cps_upload_certificate.enrollment_id_269323 269323
